@@ -3,7 +3,7 @@
 include_once('lbdev.features.inc');
 
 /**
- * Implementation of hook_enable().
+ * Implements hook_enable().
  */
 function lbdev_enable() {
   // Weight needs to be high in order to strongarm variables.
@@ -12,7 +12,7 @@ function lbdev_enable() {
   // Enable recommended modules if they are available. We save the modules we
   // enabled to a variable so we can disable them when this feature is disabled.
   if (function_exists('features_get_features') && ($feature = features_get_features('lbdev', TRUE)) && !empty($feature->info['recommends'])) {
-    $all_modules = array_keys(module_rebuild_cache());
+    $all_modules = array_keys(system_rebuild_module_data());
     // Filter out any non-existent modules.
     $modules = array_intersect($feature->info['recommends'], $all_modules);
     // Find out if any modules are already enabled.
@@ -35,7 +35,7 @@ function lbdev_enable() {
 }
 
 /**
- * Implementation of hook_disable().
+ * Implements hook_disable().
  */
 function lbdev_disable() {
   if ($modules = variable_get('lbdev_enabled_modules', array())) {
@@ -53,7 +53,7 @@ function lbdev_disable() {
 }
 
 /**
- * Implementation of hook_menu().
+ * Implements hook_menu().
  */
 function lbdev_menu() {
   $items = array();
@@ -70,7 +70,7 @@ function lbdev_menu() {
 }
 
 /**
- * Implementation of hook_theme().
+ * Implements hook_theme().
  */
 function lbdev_theme() {
   $items = array();

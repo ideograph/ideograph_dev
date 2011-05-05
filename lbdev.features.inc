@@ -1,28 +1,19 @@
 <?php
-
 /**
- * Implementation of hook_context_default_contexts().
+ * @file
+ * lbdev.features.inc
  */
-function lbdev_context_default_contexts() {
-  module_load_include('inc', 'lbdev', 'lbdev.defaults');
-  $args = func_get_args();
-  return call_user_func_array('_lbdev_context_default_contexts', $args);
-}
 
 /**
  * Implementation of hook_ctools_plugin_api().
  */
 function lbdev_ctools_plugin_api() {
-  module_load_include('inc', 'lbdev', 'lbdev.defaults');
-  $args = func_get_args();
-  return call_user_func_array('_lbdev_ctools_plugin_api', $args);
-}
-
-/**
- * Implementation of hook_strongarm().
- */
-function lbdev_strongarm() {
-  module_load_include('inc', 'lbdev', 'lbdev.defaults');
-  $args = func_get_args();
-  return call_user_func_array('_lbdev_strongarm', $args);
+  list($module, $api) = func_get_args();
+  if ($module == "context" && $api == "context") {
+    return array("version" => 3);
+  }
+  list($module, $api) = func_get_args();
+  if ($module == "strongarm" && $api == "strongarm") {
+    return array("version" => 1);
+  }
 }
