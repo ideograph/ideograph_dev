@@ -1,7 +1,4 @@
 core = "7.x"
-dependencies[] = "context_ui"
-dependencies[] = "devel"
-dependencies[] = "strongarm"
 description = "Lullabot Devel is a <a href='http://drupal.org/project/features'>Feature</a> that aids in Site development."
 features[context][] = "lbdev"
 features[ctools][] = "context:context:3"
