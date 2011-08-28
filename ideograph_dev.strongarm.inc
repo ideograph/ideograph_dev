@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * soe_dev.strongarm.inc
+ * ideograph_dev.strongarm.inc
  */
 
 /**
  * Implementation of hook_strongarm().
  */
-function soe_dev_strongarm() {
+function ideograph_dev_strongarm() {
   $export = array();
 
   $strongarm = new stdClass;

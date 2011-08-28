@@ -1,19 +1,19 @@
 <?php
 /**
  * @file
- * soe_dev.context.inc
+ * ideograph_dev.context.inc
  */
 
 /**
  * Implementation of hook_context_default_contexts().
  */
-function soe_dev_context_default_contexts() {
+function ideograph_dev_context_default_contexts() {
   $export = array();
 
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
-  $context->name = 'soe_dev';
+  $context->name = 'ideograph_dev';
   $context->description = '';
   $context->tag = '';
   $context->conditions = array(
@@ -42,7 +42,7 @@ function soe_dev_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
-  $export['soe_dev'] = $context;
+  $export['ideograph_dev'] = $context;
 
   return $export;
 }
