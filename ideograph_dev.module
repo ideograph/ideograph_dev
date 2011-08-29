@@ -3,6 +3,20 @@
 include_once('ideograph_dev.features.inc');
 
 /**
+ * Implementation of cck hook_content_types_overview_alter().
+ * @see content_types_overview().
+ */
+function ideograph_dev_content_types_overview_alter(&$header, &$rows) {
+  // Add 'display fields' link to admin/content/types
+  foreach ($rows as $key => $row) {
+    $type = strtr($row[1], '_', '-');
+    $new_cell = array('data' => l(t('display fields'), "admin/content/node-type/$type/display"));
+    array_splice($rows[$key], 5, 0, array($new_cell));
+  }
+  $header[3]['colspan'] = 5;
+}
+
+/**
  * Implementation of hook_enable().
  */
 function ideograph_dev_enable() {
