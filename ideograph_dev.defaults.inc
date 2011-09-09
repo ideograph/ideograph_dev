@@ -24,13 +24,13 @@ function _ideograph_dev_context_default_contexts() {
         'context_ui-devel' => array(
           'module' => 'context_ui',
           'delta' => 'devel',
-          'region' => 'right',
+          'region' => 'footer',
           'weight' => 0,
         ),
         'devel-2' => array(
           'module' => 'devel',
           'delta' => 2,
-          'region' => 'closure_region',
+          'region' => 'footer',
           'weight' => 0,
         ),
       ),
